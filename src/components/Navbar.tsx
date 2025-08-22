@@ -1,0 +1,55 @@
+import Image from "next/image";
+
+export default function Navbar() {
+  return (
+    <header className="w-full border-b border-gray-200 bg-white shadow-sm sticky top-0 z-20 px-5">
+      <nav className="max-w-[74rem] mx-auto min-h-[4rem] sm:min-h-[4.5rem]" aria-label="Main navigation">
+        <div className="flex justify-between items-center h-[4rem] sm:h-[4.5rem]">
+          <div className="flex items-center space-x-2.5 sm:space-x-5">
+            <div className="relative">
+              <Image
+                src="https://cdn.prod.website-files.com/6517f6cdafa18ec4281f8b18/65590110de12de54c5d6ae83_felix%20logo-svg.svg"
+                alt="Felix Logo"
+                width={48}
+                height={20}
+                priority
+                className="h-5 w-auto"
+              />
+            </div>
+            <div className="text-xs bg-[#f1f1f1] rounded-lg px-3.5 py-1 sm:block">
+              <span className="sm:hidden">Canadian 🇨🇦</span>
+              <span className="hidden sm:inline">Proudly Canadian 🇨🇦</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            {/* Desktop navigation - hidden on mobile */}
+            <a href="" className="font-semibold">Log in</a>
+            <button
+              className="bg-felix-dark text-white font-semibold py-3 px-5 rounded-xl sm:flex gap-2.5 items-center hidden"
+              aria-label="Find your treatment"
+            >
+              <div className="w-[18px] h-[18px]">
+                <svg width="100%" height="100%" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.3536 14.1463L11.2243 11.0175C12.1313 9.92859 12.5836 8.53189 12.487 7.11798C12.3905 5.70407 11.7526 4.38181 10.706 3.42625C9.65938 2.4707 8.28468 1.95543 6.86784 1.98763C5.451 2.01983 4.10112 2.59702 3.09901 3.59913C2.0969 4.60125 1.51971 5.95113 1.48751 7.36796C1.45531 8.7848 1.97058 10.1595 2.92613 11.2061C3.88168 12.2527 5.20395 12.8906 6.61786 12.9872C8.03177 13.0837 9.42846 12.6314 10.5174 11.7244L13.6461 14.8538C13.6926 14.9002 13.7478 14.9371 13.8085 14.9622C13.8691 14.9874 13.9342 15.0003 13.9999 15.0003C14.0656 15.0003 14.1307 14.9874 14.1913 14.9622C14.252 14.9371 14.3072 14.9002 14.3536 14.8538C14.4001 14.8073 14.437 14.7522 14.4621 14.6915C14.4872 14.6308 14.5002 14.5657 14.5002 14.5C14.5002 14.4343 14.4872 14.3693 14.4621 14.3086C14.437 14.2479 14.4001 14.1927 14.3536 14.1463ZM2.4999 7.50002C2.4999 6.61 2.76382 5.73998 3.25829 4.99995C3.75275 4.25993 4.45556 3.68316 5.27782 3.34256C6.10009 3.00197 7.00489 2.91285 7.8778 3.08649C8.75072 3.26012 9.55254 3.6887 10.1819 4.31804C10.8112 4.94738 11.2398 5.7492 11.4134 6.62211C11.5871 7.49503 11.498 8.39983 11.1574 9.2221C10.8168 10.0444 10.24 10.7472 9.49996 11.2416C8.75994 11.7361 7.88991 12 6.9999 12C5.80683 11.9987 4.66301 11.5242 3.81938 10.6805C2.97575 9.83691 2.50122 8.69309 2.4999 7.50002Z" fill="white"></path>
+                </svg>
+              </div>
+              Find your treatment
+            </button>
+
+            {/* Mobile hamburger menu - shown only on mobile */}
+            <button
+              className="sm:hidden p-1"
+              aria-label="Open menu"
+              aria-expanded="false"
+            >
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.5 14C24.5 14.2321 24.4078 14.4546 24.2437 14.6187C24.0796 14.7828 23.8571 14.875 23.625 14.875H4.375C4.14294 14.875 3.92038 14.7828 3.75628 14.6187C3.59219 14.4546 3.5 14.2321 3.5 14C3.5 13.7679 3.59219 13.5454 3.75628 13.3813C3.92038 13.2172 4.14294 13.125 4.375 13.125H23.625C23.8571 13.125 24.0796 13.2172 24.2437 13.3813C24.4078 13.5454 24.5 13.7679 24.5 14ZM4.375 7.875H23.625C23.8571 7.875 24.0796 7.78281 24.2437 7.61872C24.4078 7.45462 24.5 7.23206 24.5 7C24.5 6.76794 24.4078 6.54538 24.2437 6.38128C24.0796 6.21719 23.8571 6.125 23.625 6.125H4.375C4.14294 6.125 3.92038 6.21719 3.75628 6.38128C3.59219 6.54538 3.5 6.76794 3.5 7C3.5 7.23206 3.59219 7.45462 3.75628 7.61872C3.92038 7.78281 4.14294 7.875 4.375 7.875ZM23.625 20.125H4.375C4.14294 20.125 3.92038 20.2172 3.75628 20.3813C3.59219 20.5454 3.5 20.7679 3.5 21C3.5 21.2321 3.59219 21.4546 3.75628 21.6187C3.92038 21.7828 4.14294 21.875 4.375 21.875H23.625C23.8571 21.875 24.0796 21.7828 24.2437 21.6187C24.4078 21.4546 24.5 21.2321 24.5 21C24.5 20.7679 24.4078 20.5454 24.2437 20.3813C24.0796 20.2172 23.8571 20.125 23.625 20.125Z" fill="#31302F"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+}
