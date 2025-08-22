@@ -49,7 +49,7 @@ export default function Faqs({ faqData }: FaqsProps) {
                   <AccordionTrigger className="text-left sm:text-lg font-normal text-md hover:no-underline sm:py-4 px-0">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="sm:text-muted-foreground sm:leading-relaxed sm:pt-2 pb-2">
+                  <AccordionContent className="sm:text-base sm:pt-2 sm:pb-4 pb-8">
                     {faq.answer.split("\n\n").map((paragraph, index) => (
                       <p key={index} className={index > 0 ? "mt-4" : ""}>
                         {paragraph}
