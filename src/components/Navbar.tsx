@@ -23,7 +23,6 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            {/* Desktop navigation - hidden on mobile */}
             <a href="" className="font-semibold">Log in</a>
             <button
               className="bg-felix-dark text-white font-semibold py-3 px-5 rounded-xl sm:flex gap-2.5 items-center hidden"
@@ -37,7 +36,6 @@ export default function Navbar() {
               Find your treatment
             </button>
 
-            {/* Mobile hamburger menu - shown only on mobile */}
             <button
               className="sm:hidden p-1"
               aria-label="Open menu"

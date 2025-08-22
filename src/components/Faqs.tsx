@@ -14,7 +14,6 @@ interface FaqsProps {
 }
 
 export default function Faqs({ faqData }: FaqsProps) {
-  // Group FAQs by category
   const faqsByCategory = faqData.reduce((acc, faq) => {
     if (!acc[faq.category]) {
       acc[faq.category] = [];
@@ -23,7 +22,6 @@ export default function Faqs({ faqData }: FaqsProps) {
     return acc;
   }, {} as Record<string, FAQ[]>);
 
-  // Get unique categories and sort them
   const categories = Object.keys(faqsByCategory).sort();
 
   return (
@@ -32,7 +30,7 @@ export default function Faqs({ faqData }: FaqsProps) {
         <h1 className="text-4xl md:text-5xl font-normal text-foreground">Frequently asked questions</h1>
       </div>
 
-      {categories.map((category, categoryIndex) => (
+      {categories.map((category) => (
         <div key={category} className="flex flex-col lg:flex-row gap-4 lg:gap-16 mb-12">
           <div className="lg:w-48 flex-shrink-0 sm:my-4">
             <div className="text-xl font-medium text-foreground">
@@ -44,7 +42,6 @@ export default function Faqs({ faqData }: FaqsProps) {
             <Accordion
               type="single"
               collapsible
-              defaultValue={faqsByCategory[category][0]?.id}
               className="sm:space-y-4"
             >
               {faqsByCategory[category].map((faq) => (

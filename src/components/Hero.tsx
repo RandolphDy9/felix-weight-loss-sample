@@ -42,7 +42,6 @@ export default function Hero() {
               Find out if you&apos;re eligible
             </button>
 
-            {/* FrostedBar displayed inline on mobile */}
             <div className="sm:hidden">
               <FrostedBar />
             </div>
@@ -61,7 +60,6 @@ export default function Hero() {
         />
       </section>
 
-      {/* FrostedBar positioned absolutely on desktop */}
       <div className="hidden sm:block">
         <FrostedBar />
       </div>

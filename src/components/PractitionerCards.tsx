@@ -12,7 +12,6 @@ interface Practitioner {
   photo: string
 }
 
-// Custom hook for intersection observer
 function useInView(options = {}) {
   const [isInView, setIsInView] = useState(false)
   const ref = useRef<HTMLElement>(null)
@@ -57,14 +56,12 @@ export default function PractitionerCards({ practitioners }: { practitioners: Pr
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Set initial scroll position when section comes into view
   useEffect(() => {
     if (isInView && initialScrollY === 0) {
       setInitialScrollY(scrollY)
     }
   }, [isInView, scrollY, initialScrollY])
 
-  // Add defensive programming
   if (!practitioners || !Array.isArray(practitioners) || practitioners.length === 0) {
     return (
       <section className="py-16 px-4">
@@ -75,10 +72,7 @@ export default function PractitionerCards({ practitioners }: { practitioners: Pr
     )
   }
 
-  // Calculate relative scroll distance from when section came into view
   const scrollDistance = isInView ? scrollY - initialScrollY : 0
-
-  // Calculate transform values - first row moves left, second row moves right
   const firstRowTransform = isInView ? scrollDistance * 0.5 : 0
   const secondRowTransform = isInView ? scrollDistance * 0.3 : 0
 
