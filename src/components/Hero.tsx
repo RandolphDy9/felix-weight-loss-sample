@@ -3,7 +3,7 @@ import FrostedBar from "./FrostedBar";
 
 export default function Hero() {
   return (
-    <main className="sm:min-h-[calc(85vh-4.5rem)] flex flex-col lg:flex-row justify-between relative">
+    <main className="min-h-[60vh] sm:min-h-[calc(85vh-4.5rem)] max-h-[80vh] sm:max-h-none flex flex-col lg:flex-row justify-between relative">
       <section className="lg:w-1/2 order-2 lg:order-1 bg-white mt-8 sm:mt-0">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center h-full">
           <div className="text-center">
