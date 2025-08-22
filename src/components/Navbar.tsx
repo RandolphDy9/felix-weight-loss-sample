@@ -25,7 +25,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <a href="" className="font-semibold">Log in</a>
             <button
-              className="bg-felix-dark text-white font-semibold py-3 px-5 rounded-xl sm:flex gap-2.5 items-center hidden"
+              className="bg-felix-dark text-white font-semibold py-3 px-5 rounded-xl sm:flex gap-2.5 items-center hidden cursor-pointer"
               aria-label="Find your treatment"
             >
               <div className="w-[18px] h-[18px]">

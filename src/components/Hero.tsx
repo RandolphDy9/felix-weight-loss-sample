@@ -1,7 +1,49 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import FrostedBar from "./FrostedBar";
 
 export default function Hero() {
+  const [ctaText, setCtaText] = useState("Find out if you're eligible");
+  const [variant, setVariant] = useState<"A" | "B">("A");
+
+  // Assign variant and track page view
+  useEffect(() => {
+    // Clear the stored variant for testing (remove in production!)
+    // localStorage.removeItem("ctaVariant");
+
+    let storedVariant = localStorage.getItem("ctaVariant");
+
+    if (storedVariant !== "A" && storedVariant !== "B") {
+      storedVariant = Math.random() < 0.5 ? "A" : "B";
+      localStorage.setItem("ctaVariant", storedVariant);
+    }
+
+    setVariant(storedVariant as "A" | "B");
+    setCtaText(storedVariant === "A" ? "Find out if you're eligible" : "Find Out Now");
+
+    // Track page view with variant
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "page_view", {
+        variant: storedVariant,
+        experiment_name: "hero_button_text",
+      });
+    }
+  }, []);
+
+
+  const handleClick = () => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "cta_click", {
+        variant,
+        button_text: ctaText,
+        experiment_name: "hero_button_text",
+        event_category: "A/B Testing"
+      });
+    }
+  };
+
   return (
     <main className="min-h-[60vh] sm:min-h-[calc(85vh-4.5rem)] max-h-[80vh] sm:max-h-none flex flex-col lg:flex-row justify-between relative">
       <section className="lg:w-1/2 order-2 lg:order-1 bg-white mt-8 sm:mt-0">
@@ -38,8 +80,12 @@ export default function Hero() {
             <p className="text-xl text-gray-600 mb-8 mx-auto">
               Get weight loss treatment prescribed online in Canada.
             </p>
-            <button className="bg-felix-dark w-full sm:w-auto text-white font-semibold py-3 sm:py-4 px-8 rounded-xl text-md sm:text-lg mb-8">
-              Find out if you&apos;re eligible
+
+            <button
+              className="bg-felix-dark w-full sm:w-auto text-white font-semibold py-3 sm:py-4 px-8 rounded-xl text-md sm:text-lg mb-8 cursor-pointer"
+              onClick={handleClick}
+            >
+              {ctaText}
             </button>
 
             <div className="sm:hidden">
@@ -64,5 +110,5 @@ export default function Hero() {
         <FrostedBar />
       </div>
     </main>
-  )
+  );
 }
