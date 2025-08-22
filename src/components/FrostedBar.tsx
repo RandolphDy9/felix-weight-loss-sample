@@ -34,10 +34,12 @@ function ShippingInfo({
 export default function FrostedBar() {
   return (
     <section
-      className="sm:w-full sm:mx-auto sm:flex sm:justify-center relative sm:absolute bottom-0 sm:translate-y-1/2 z-10"
+      className="w-full mx-auto flex justify-center 
+                 sm:w-full sm:mx-auto sm:flex sm:justify-center 
+                 relative sm:absolute sm:bottom-0 sm:translate-y-1/2 sm:z-10"
       aria-label="Service highlights and trust indicators"
     >
-      <div className="flex flex-col items-start sm:flex-row sm:justify-between sm:items-center min-w-[20rem] sm:min-w-[74rem] px-4 sm:px-16 py-4 border-light border-1 bg-white backdrop-blur-sm rounded-xl gap-4 sm:gap-0">
+      <div className="w-full flex flex-col items-start sm:w-auto sm:flex-row sm:justify-between sm:items-center min-w-[20rem] sm:min-w-[74rem] px-4 sm:px-16 py-4 border-light border-1 bg-white backdrop-blur-sm rounded-xl gap-4 sm:gap-0">
         <ShippingInfo
           iconSrc="https://cdn.prod.website-files.com/6517f6cdafa18ec4281f8b18/651c57e3d1584ec8b9199df6_Vectors-Wrapper.svg"
           text="Free and fast shipping"

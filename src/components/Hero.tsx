@@ -77,7 +77,7 @@ export default function Hero() {
                 </span>
               </div>
             </div>
-            <p className="text-xl text-gray-600 mb-8 mx-auto">
+            <p className="text-lg text-gray-600 mb-8 mx-auto px-4">
               Get weight loss treatment prescribed online in Canada.
             </p>
 

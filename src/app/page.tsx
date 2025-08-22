@@ -14,7 +14,9 @@ export default async function Home() {
     <>
       <Navbar />
       <Hero />
-      <BentoSection />
+      <section className="mt-44 sm:mt-0">
+        <BentoSection />
+      </section>
       <Practitioner practitionersData={practitionersData} />
       <Faqs faqData={faqData} />
     </>
