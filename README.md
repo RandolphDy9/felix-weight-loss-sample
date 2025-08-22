@@ -9,7 +9,7 @@ A responsive web application for weight loss consultations, built to showcase a 
 - 🚀 **Fast Performance** – Optimized with **Server-Side Rendering (SSR)**.  
 - 🛠️ **Modern Stack** – Built with **Next.js**, **React**, and **TypeScript**.  
 - 🎨 **Clean UI** – Styled with **Tailwind CSS** and accessible components from **Shadcn UI**.  
-- 📊 **Analytics Ready** – Integrated with **Google Analytics** for performance tracking.
+- 📊 **Analytics & A/B Testing** – Integrated with **Google Analytics 4** and supports A/B testing of UI elements such as the Hero CTA button.
 
 ---
 
@@ -18,7 +18,7 @@ A responsive web application for weight loss consultations, built to showcase a 
 - **UI**: React 19, Shadcn UI, Tailwind CSS  
 - **CMS**: Contentful  
 - **Language**: TypeScript  
-- **Analytics**: Google Analytics 4
+- **Analytics**: Google Analytics 4 (with A/B testing support)
 
 ---
 
@@ -74,9 +74,9 @@ Your app should now be running at:
    - Set publish directory: `.next`
    - Configure environment variables in Netlify dashboard
 
-### Google Analytics Integration
+### Google Analytics Integration & A/B Testing
 
-After deployment, set up Google Analytics:
+After deployment, set up **Google Analytics 4 (GA4)**:
 
 1. **Create GA4 Property**
    - Go to [Google Analytics](https://analytics.google.com/)
@@ -87,10 +87,21 @@ After deployment, set up Google Analytics:
    - Add `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX` to your Netlify environment variables
    - The app will automatically load Google Analytics on all pages
 
-3. **Verify Integration**
+3. **Hero CTA A/B Testing**
+   - Two variants of the Hero button are tracked:
+     - Variant A: "Find out if you're eligible"
+     - Variant B: "Find Out Now"
+   - Clicks on each variant are tracked via GA4 events with parameters:
+     - `variant` → "A" or "B"
+     - `button_text` → actual button text
+     - `experiment_name` → "hero_button_text"
+     - `event_category` → "A/B Testing"
+   - You can analyze performance using **Custom Definitions** and **Exploration reports** in GA4
+
+4. **Verify Integration**
    - Visit your deployed site
-   - Check browser developer tools for GA4 tracking
-   - Verify data appears in your Google Analytics dashboard
+   - Click the Hero CTA button
+   - Check **Realtime** or **Exploration reports** in GA4 to see variant performance
 
 ---
 
